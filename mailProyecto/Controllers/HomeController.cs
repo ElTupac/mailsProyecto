@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mailProyecto.Models;
+using System.Net.Mail;
 
 namespace mailProyecto.Controllers
 {
@@ -13,17 +14,26 @@ namespace mailProyecto.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        public string NombreContacto(string nombre)
+        {
+            return $"Gracias por el mensaje {nombre}";
+        }
+
+        [HttpPost]
+        public IActionResult EnviarContacto(string nombre, string mail, string mensaje)
+        {
+            ViewBag.nombre = nombre;
+            ViewBag.mail = mail;
+            ViewBag.mensaje = mensaje;
+             
+            return View("Saludo");
+        }
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
         public IActionResult Contact()
-        {
-            return View();
-        }
-
-        public IActionResult Saludo()
         {
             return View();
         }

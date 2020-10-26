@@ -1,2 +1,6 @@
-<img src="https://sc.mogicons.com/share/thumbs-up-192.jpg" alt="dedito">
-<p>Gracias por el mensaje</p>
+@{
+    ViewData["Tittle"] = "Saludo";
+}
+<img src="https://sc.mogicons.com/share/thumbs-up-192.jpg" alt="dedito" style="position: relative; width: 60%; left: 20%;">
+<h1 style="text-align: center;">@ViewBag.nombre, gracias por tu mensaje</h1>
+<p style="text-align: center;">Te vamos a reventar tu mail @ViewBag.mail</p>

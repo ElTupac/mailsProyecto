@@ -2,7 +2,7 @@
     ViewData["Title"] = "Contact Page";
 }
 
-<form method="POST" action="@Url.Action("Saludo", "Home")">
+<form method="POST" action="@Url.Action("EnviarContacto", "Home")">
     <div>
         <label for="nombre">Nombre</label>
         <input type="text" placeholder="Nombre" name="nombre" required>
@@ -12,8 +12,8 @@
         <input type="email" placeholder="Mail" name="mail" required>
     </div>
     <div>
-        <label for="message">Mensaje para enviar</label>
-        <input type="text" placeholder="Deje un mensaje" name="message">
+        <label for="mensaje">Mensaje para enviar</label>
+        <input type="text" placeholder="Deje un mensaje" name="mensaje">
     </div>
     <br>
     <button type="submit" value="Enviar">Enviar</button>
