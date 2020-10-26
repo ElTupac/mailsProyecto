@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Contact Page";
+}
+
+<form method="POST">
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" placeholder="Nombre" name="nombre" required>
+    </div>
+    <div>
+        <label for="mail">Mail</label>
+        <input type="email" placeholder="Mail" name="mail" required>
+    </div>
+    <div>
+        <label for="message">Mensaje para enviar</label>
+        <input type="text" placeholder="Deje un mensaje" name="message">
+    </div>
+    <br>
+    <button type="submit" value="Enviar">Enviar</button>
+</form>
