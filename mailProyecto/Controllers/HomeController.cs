@@ -23,6 +23,11 @@ namespace mailProyecto.Controllers
             return View();
         }
 
+        public IActionResult Saludo()
+        {
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();

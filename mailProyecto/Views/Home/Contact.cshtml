@@ -2,7 +2,7 @@
     ViewData["Title"] = "Contact Page";
 }
 
-<form method="POST">
+<form method="POST" action="@Url.Action("Saludo", "Home")">
     <div>
         <label for="nombre">Nombre</label>
         <input type="text" placeholder="Nombre" name="nombre" required>
