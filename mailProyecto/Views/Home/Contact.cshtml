@@ -2,19 +2,41 @@
     ViewData["Title"] = "Contact Page";
 }
 
-<form method="POST" action="@Url.Action("EnviarContacto", "Home")">
-    <div>
-        <label for="nombre">Nombre</label>
-        <input type="text" placeholder="Nombre" name="nombre" required>
+<div class="content">
+
+    <h1 class="logo">Contactanos</h1>
+
+    <div class="contact-wrapper animated bounceInUp">
+        <div class="contact-form">
+            <h3>Contacto</h3>
+            <form method="POST" action="@Url.Action("EnviarContacto", "Home")">
+                <p>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" required>
+                </p>
+                <p>
+                    <label for="mail">Email</label>
+                    <input type="email" name="mail" required>
+                </p>
+                <p class="block">
+                    <label for="mensaje">Mensaje</label>
+                   <textarea name="mensaje" rows="3" required></textarea>    
+                </p>
+                <p class="block">
+                    <button type="submit" value="Enviar">Enviar</button>
+                </p>
+            </form>
+        </div>
+        <div class="contact-info">
+            <h4>Mas Info</h4>
+            <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Calle Falsa 123 </li>
+                <li><i class="fas fa-phone"></i> (+54) 1514131211</li>
+                <li><i class="fas fa-envelope-open-text"></i> juanzinhoperezinho@gmail.com </li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero provident ipsam necessitatibus repellendus?</p>
+            <p>Grupo3FTW.com</p>
+        </div>
     </div>
-    <div>
-        <label for="mail">Mail</label>
-        <input type="email" placeholder="Mail" name="mail" required>
-    </div>
-    <div>
-        <label for="mensaje">Mensaje para enviar</label>
-        <input type="text" placeholder="Deje un mensaje" name="mensaje">
-    </div>
-    <br>
-    <button type="submit" value="Enviar">Enviar</button>
-</form>
+
+</div>

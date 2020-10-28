@@ -41,7 +41,7 @@ namespace mailProyecto.Controllers
             string mensajeMail = $"{nombre}, tu mensaje fue recibido. Nos pondremos en contacto con usted.\n Su mensaje fue: {mensaje}";
 
             smtpClient.Send(myMail, mail, $"{nombre}, gracias por tu mensaje", mensajeMail);
-            smtpClient.Send(myMail, myMail, $"Llego un mail de {nombre}", "Revisa el servidor");
+            smtpClient.Send(myMail, myMail, $"Llego un mail de {nombre}", $"{mensaje}");
             
             return View("Saludo");
         }
