@@ -7,11 +7,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mailProyecto.Models;
 using System.Net.Mail;
+using System.Net;
 
 namespace mailProyecto.Controllers
 {
+
+
     public class HomeController : Controller
     {
+
+        public string myMail = "juanzinhoperezinho@gmail.com";
+        public string myPassword = "grupo3FTW";
         private readonly ILogger<HomeController> _logger;
 
         public string NombreContacto(string nombre)
@@ -25,7 +31,18 @@ namespace mailProyecto.Controllers
             ViewBag.nombre = nombre;
             ViewBag.mail = mail;
             ViewBag.mensaje = mensaje;
-             
+
+            var smtpClient = new SmtpClient("smtp.gmail.com"){
+                Port = 587,
+                Credentials = new NetworkCredential(myMail, myPassword),
+                EnableSsl = true,
+            };
+
+            string mensajeMail = $"{nombre}, tu mensaje fue recibido. Nos pondremos en contacto con usted.\n Su mensaje fue: {mensaje}";
+
+            smtpClient.Send(myMail, mail, $"{nombre}, gracias por tu mensaje", mensajeMail);
+            smtpClient.Send(myMail, myMail, $"Llego un mail de {nombre}", "Revisa el servidor");
+            
             return View("Saludo");
         }
         public HomeController(ILogger<HomeController> logger)
