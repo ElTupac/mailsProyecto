@@ -168,4 +168,27 @@ ul {
 .contact-info h4, .contact-info ul, .contact-info p {
   text-align: center;
   margin: 0 0 1rem 0;
+} 
+
+/*Saludo Style */
+
+.contact-saludo 
+{
+  background: #222222;
+}
+
+.contact-saludo p, h1
+{
+  color: #fff;
+  text-align: center;
+  margin: 15px;
+}
+
+.contact-saludo img
+{
+  position: relative; 
+  width: auto;
+  display:block;
+  margin:auto; 
+  filter: invert(1);
 }
