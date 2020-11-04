@@ -22,7 +22,7 @@ namespace mailProyecto.Controllers
             db = context;
         } */
 
-        public string AgregarNota(string titulo, string cuerpo)
+        public IActionResult AgregarNota(string titulo, string cuerpo)
         {
             Nota nuevaNota = new Nota(){
                 Titulo = titulo,
@@ -31,12 +31,27 @@ namespace mailProyecto.Controllers
             db.Notas.Add(nuevaNota);
             db.SaveChanges();
 
-            return "Ok";
+            ViewBag.tituloNota = titulo;
+            ViewBag.cuerpoNota = cuerpo;
+
+            return View("NotaCreada");
         }
 
-        public JsonResult ConsultarNotas(long ID)
+        public IActionResult ConsultarNotas(long ID)
         {
-            return Json(db.Notas.FirstOrDefault(n => n.ID == ID));
+            Nota notaConsulta = db.Notas.FirstOrDefault(n => n.ID == ID);
+
+            if(notaConsulta == null)
+            {
+                return View("NotaInexistente");
+            } 
+            else
+            {
+                ViewBag.titulo = notaConsulta.Titulo;
+                ViewBag.cuerpo = notaConsulta.Cuerpo;
+
+                return View("NotaConsultada");
+            }
         }
 
         public string myMail = "juanzinhoperezinho@gmail.com";
