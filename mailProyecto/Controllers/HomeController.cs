@@ -11,10 +11,33 @@ using System.Net;
 
 namespace mailProyecto.Controllers
 {
+    
 
 
     public class HomeController : Controller
     {
+        private readonly NotasContext db;
+       /*  public HomeController(NotasContext context)
+        {
+            db = context;
+        } */
+
+        public string AgregarNota(string titulo, string cuerpo)
+        {
+            Nota nuevaNota = new Nota(){
+                Titulo = titulo,
+                Cuerpo = cuerpo
+            };
+            db.Notas.Add(nuevaNota);
+            db.SaveChanges();
+
+            return "Ok";
+        }
+
+        public JsonResult ConsultarNotas(long ID)
+        {
+            return Json(db.Notas.FirstOrDefault(n => n.ID == ID));
+        }
 
         public string myMail = "juanzinhoperezinho@gmail.com";
         public string myPassword = "grupo3FTW";
@@ -45,9 +68,10 @@ namespace mailProyecto.Controllers
             
             return View("Saludo");
         }
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, NotasContext context)
         {
             _logger = logger;
+            db = context;
         }
 
         public IActionResult Contact()
