@@ -22,6 +22,7 @@ namespace mailProyecto.Controllers
             db = context;
         } */
 
+        [HttpPost]
         public IActionResult AgregarNota(string titulo, string cuerpo)
         {
             Nota nuevaNota = new Nota(){
@@ -37,6 +38,7 @@ namespace mailProyecto.Controllers
             return View("NotaCreada");
         }
 
+        [HttpGet]
         public IActionResult ConsultarNotas(long ID)
         {
             Nota notaConsulta = db.Notas.FirstOrDefault(n => n.ID == ID);
@@ -89,6 +91,10 @@ namespace mailProyecto.Controllers
             db = context;
         }
 
+        public IActionResult MisNotas()
+        {
+            return View();
+        }
         public IActionResult Contact()
         {
             return View();
